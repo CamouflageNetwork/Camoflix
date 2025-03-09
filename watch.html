@@ -1,0 +1,185 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Camoflix | Watch</title>
+    <style>
+        body {
+            height: 100%;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            background: #020412;
+        }
+
+        #particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 4px solid #005c22;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%)
+        }
+    
+        .custom-cursor.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: rgba(9, 229, 35, 0.2)
+        }
+    
+        .custom-cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: #005c22;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.05s ease;
+            transform: translate(-50%, -50%)
+        }
+
+        iframe {
+            background-image: url('loading.gif');
+            background-size: 100%;
+            background-position: center;
+            z-index: 4;
+            border-radius: 1vh;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+<style type="text/css" id="operaUserStyle"></style><style>
+        @keyframes moveParticle {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(calc(-50vw + 100%), calc(-100vh)) rotate(360deg);
+            }
+        }
+        </style></head>
+<body>
+    <div id="crosshair" class="crosshair"></div>
+    <div id="particle-container"><div style="position: absolute; bottom: 0px; left: 1183.87px; width: 3.04434px; height: 3.04434px; border-radius: 50%; background-color: rgb(2, 160, 2); opacity: 0.577479; animation: 4.61371s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 240.039px; width: 6.3365px; height: 6.3365px; border-radius: 50%; background-color: rgb(3, 216, 3); opacity: 0.570472; animation: 2.97695s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 448.965px; width: 2.56007px; height: 2.56007px; border-radius: 50%; background-color: rgb(77, 245, 77); opacity: 0.34297; animation: 4.11182s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 599.073px; width: 6.85367px; height: 6.85367px; border-radius: 50%; background-color: rgb(36, 236, 36); opacity: 0.33189; animation: 4.32113s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 650.785px; width: 6.03786px; height: 6.03786px; border-radius: 50%; background-color: rgb(77, 245, 77); opacity: 0.225997; animation: 3.83779s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 1651.95px; width: 3.46312px; height: 3.46312px; border-radius: 50%; background-color: rgb(3, 216, 3); opacity: 0.656553; animation: 3.85324s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 685.18px; width: 3.89197px; height: 3.89197px; border-radius: 50%; background-color: rgb(3, 216, 3); opacity: 0.78731; animation: 4.90067s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 238.376px; width: 6.28202px; height: 6.28202px; border-radius: 50%; background-color: rgb(3, 216, 3); opacity: 0.323038; animation: 3.7975s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 925.692px; width: 2.9522px; height: 2.9522px; border-radius: 50%; background-color: rgb(2, 153, 2); opacity: 0.284899; animation: 2.96113s linear 0s 1 normal none running moveParticle;"></div></div>
+    <center>
+        <iframe id="movie-frame" src="/api/proxy?url=https://vidsrcserver.global.ssl.fastly.net/embed/movie/454626" frameborder="0" width="70%" height="800"></iframe>
+        <br>
+        <button class="fullscreen-btn" id="fullscreen-btn">⛶</button>
+    </center>
+    <script>
+        const movieUrl = localStorage.getItem("movieurl");
+
+        if (movieUrl) {
+            document.getElementById('movie-frame').src = "/api/proxy?url=https://vidsrcserver.global.ssl.fastly.net/embed/movie/" + localStorage.getItem("movieurl");
+        }
+
+        const iframe = document.getElementById('movie-frame');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                iframe.requestFullscreen().catch((err) => {
+                    console.error("Error attempting to enable fullscreen mode: ", err);
+                });
+            } else {
+                document.exitFullscreen().catch((err) => {
+                    console.error("Error attempting to exit fullscreen mode: ", err);
+                });
+            }
+        });
+
+    </script>
+    <!-- Cursor Thingy -->
+    <script>
+        const cursor = document.querySelector('.custom-cursor');
+      const cursorDot = document.querySelector('.custom-cursor-dot');
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursorDot.style.left = e.clientX + 'px';
+        cursorDot.style.top = e.clientY + 'px'
+      });
+      document.addEventListener('mousedown', () => cursor.style.transform = 'translate(-50%, -50%) scale(0.7)');
+      document.addEventListener('mouseup', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+      document.querySelectorAll('a, button, .movie-card').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'))
+      });
+     </script>
+     <!-- Partical Thingy -->
+      <script>
+        const particleContainer = document.getElementById('particle-container');
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            const size = Math.random() * 5 + 2; 
+            const startX = Math.random() * window.innerWidth;
+            const greenShades = ['#24ec24', '#03d803', '#029902', '#02a002', '#4df54d'];
+
+            particle.style.cssText = `
+                position: absolute;
+                bottom: 0;
+                left: ${startX}px;
+                width: ${size}px;
+                height: ${size}px;
+                border-radius: 50%;
+                background-color: ${greenShades[Math.floor(Math.random() * greenShades.length)]};
+                opacity: ${Math.random() * 0.8 + 0.2};
+                animation: moveParticle ${Math.random() * 3 + 2}s linear;
+            `;
+
+            particleContainer.appendChild(particle);
+
+            particle.addEventListener('animationend', () => particle.remove());
+        }
+
+        setInterval(() => {
+            if (document.hidden) return;
+            createParticle();
+        }, 400);
+
+        const style = document.createElement('style');
+        style.textContent = `
+        @keyframes moveParticle {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(calc(-50vw + 100%), calc(-100vh)) rotate(360deg);
+            }
+        }
+        `;
+        document.head.appendChild(style);
+      </script>
+
+
+</body></html>
