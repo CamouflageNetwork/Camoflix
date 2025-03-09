@@ -240,41 +240,200 @@
           100% { opacity: 1; }
         }
       </style>
-    <section id="movie-grid" class="movie-grid">
-      <h1>Latest Movies</h1>
-       <script>
-        const apiUrl = 'https://vidsrc.xyz/movies/latest/page-1.json';
-        const movieContainer = document.getElementById('movie-container');
-        
-        async function fetchMovies() {
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-                displayMovies(data.result);
-            } catch (error) {
-                console.error('Error fetching movies:', error);
-            }
-        }
-        
-        function displayMovies(movies) {
-            movieContainer.innerHTML = '';
-            movies.forEach(movie => {
-                const movieElement = document.createElement('div');
-                movieElement.classList.add('movie');
-                movieElement.innerHTML = `
-                    <h3>${movie.title}</h3>
-                `;
-                movieElement.addEventListener('click', () => {
-                    localStorage.setItem('movieurl', movie.imdb_id);
-                    window.location.href = 'watch.html';
-                });
-                movieContainer.appendChild(movieElement);
-            });
-        }
-        
-        document.addEventListener('DOMContentLoaded', fetchMovies);
-       </script>
-    </section>
+      <section id="movie-grid" class="movie-grid">
+        <div onclick="movieshow('454626')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BYTg2Yjc5MzItNzVmMi00MTllLWI2MDQtOTYyOWNjYWIxNzEzXkEyXkFqcGc@._V1_.jpg" alt="Sonic The Hedgehog">
+            <h2>Sonic The Hedgehog</h2>
+        </div>
+        <div onclick="movieshow('675353')" class="movie-card">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Sonic_the_Hedgehog_2_film_poster.jpg" alt="Sonic The Hedgehog 2">
+            <h2>Sonic The Hedgehog 2</h2>
+        </div>
+        <div onclick="movieshow('939243')" class="movie-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR_7tfJMXePnMiUUwvFVpe9ZbaYlofdJnL3CK9HEZqDSd9GBX5LUnAWShlJRt2sEEVHhYhZLw" alt="Sonic The Hedgehog 2">
+            <h2>Sonic The Hedgehog 3</h2>
+        </div>
+        <div onclick="movieshow('862')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BZTA3OWVjOWItNjE1NS00NzZiLWE1MjgtZDZhMWI1ZTlkNzYwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Toy Story">
+            <h2>Toy Story</h2>
+        </div>
+        <div onclick="movieshow('787699')" class="movie-card">
+            <img src="https://i5.walmartimages.com/seo/Wonka-2023-DVD-Starring-Timoth-e-Chalamet_b855c4ed-eb49-47ae-8bcd-52edc5b26238.15373e496aef70d656508db94cb36d5d.jpeg" alt="Wonka">
+            <h2>Wonka</h2>
+        </div>
+        <div onclick="movieshow('502356')" class="movie-card">
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/44/The_Super_Mario_Bros._Movie_poster.jpg" alt="The Mario Movie">
+            <h2>The Mario Movie</h2>
+        </div>
+        <div onclick="movieshow('73723')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BMTU1MTAwMjk1NF5BMl5BanBnXkFtZTcwMDI5NDc4Ng@@._V1_.jpg" alt="The Lorax">
+            <h2>The Lorax</h2>
+        </div>
+        <div onclick="movieshow('2300')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/I/61VX0X7EGDL._AC_UF894,1000_QL80_.jpg" alt="Space Jam">
+            <h2>Space Jam</h2>
+        </div>
+        <div onclick="movieshow('105')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/S/pv-target-images/c190e195b8b1d440d728fe77b02385975dafba7ce6a18451fa2b1afbe2f81db6.jpg" alt="Back to The Future">
+            <h2>Back to The Future</h2>
+        </div>
+        <div onclick="movieshow('165')" class="movie-card">
+            <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p11991_p_v8_ap.jpg" alt="Back to The Future Part 2">
+            <h2>Back to The Future Part 2</h2>
+        </div>
+        <div onclick="movieshow('196')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/I/81qDP2MHmGL._AC_UF894,1000_QL80_.jpg" alt="Back to The Future Part 3">
+            <h2>Back to The Future Part 3</h2>
+        </div>
+        <div onclick="movieshow('20352')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMzQ2MTc0Mw@@._V1_FMjpg_UX1000_.jpg" alt="Despicable Me">
+            <h2>Despicable Me</h2>
+        </div>
+        <div onclick="movieshow('93456')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BNDExNDllYzMtZjdmOS00NWMwLWJlY2EtMDk2ZjE5MmZiOWY5XkEyXkFqcGc@._V1_.jpg" alt="Despicable Me 2">
+            <h2>Despicable Me 2</h2>
+        </div>
+        <div onclick="movieshow('324852')" class="movie-card">
+            <img src="https://www.hachettebookgroup.com/wp-content/uploads/2017/06/9780316507677.jpg?w=427" alt="Despicable Me 3">
+            <h2>Despicable Me 3</h2>
+        </div>
+        <div onclick="movieshow('519182')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BNzY0ZTlhYzgtOTgzZC00ZTg2LTk4NTEtZDllM2E2NGE5Njg2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Despicable Me 4">
+            <h2>Despicable Me 4</h2>
+        </div>
+        <div onclick="movieshow('533535')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BZTk5ODY0MmQtMzA3Ni00NGY1LThiYzItZThiNjFiNDM4MTM3XkEyXkFqcGc@._V1_.jpg" alt="Deadpool and Wolverine">
+            <h2>Deadpool and Wolverine</h2>
+        </div>
+        <div onclick="movieshow('804150')" class="movie-card">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT0QOvx6GRkhYfE5r41_2ekXAwPGG0f-anCNyZVbj-p8vCpK6qy6TV0NvsBCUKWn1Rlr_wT" alt="Cocain Bear">
+            <h2>Cocain Bear</h2>
+        </div>
+        <div onclick="movieshow('293660')" class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStdWUIGaLV-e3jZxQwPLxtNBpQ-s7sGTJy7NrN8bE0yC2e_UmnrVSXUoEBIMad0kt_Fc0&amp;usqp=CAU" alt="Deadpool">
+            <h2>Deadpool</h2>
+        </div>
+        <div onclick="movieshow('748783')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BM2JhMmQwYWYtOTkyNC00YjI5LWJiOTAtODcxOGYyMGY5N2Q1XkEyXkFqcGc@._V1_.jpg" alt="The Garfield Movie">
+            <h2>The Garfield Movie</h2>
+        </div>
+        <div onclick="movieshow('671')" class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7I3qZPLNroLt6s189pEGUCdt8Z-08jU-yniCX0LsguHMOvHN9H8vSta7qQdFQuyXsTo8&amp;usqp=CAU" alt="Harry Potter And The Sorcerer's Stone">
+            <h2>Harry Potter And The Philosopher's Stone</h2>
+        </div>
+        <div onclick="movieshow('672')" class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5CR-nVjDTALNu4lZS1-6e5rU70K7kG1luvw2NDpfpKPI40MJ1" alt="Harry Potter And The Seceret of Chambers">
+            <h2>Harry Potter And The Seceret of Chambers</h2>
+        </div>
+        <div onclick="movieshow('1022789')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BYWY3MDE2Y2UtOTE3Zi00MGUzLTg2MTItZjE1ZWVkMGVlODRmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Inside Out 2">
+            <h2>Inside Out 2</h2>
+        </div>
+        <div onclick="movieshow('438148')" class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtFO-gORJESQwkjFVbxpmVr4JIzi2AuLOhqw&amp;s" alt="Minions The Rise Of Gru">
+            <h2>Minions The Rise Of Gru</h2>
+        </div>
+        <div onclick="movieshow('211672')" class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe3UTbXZtEu69zRyTVjJMtC00mEDUpv7szLUJQ8xOyDf3eQ-vWdRWpR0U3ffHox1n3aYc&amp;usqp=CAU" alt="Minions">
+            <h2>Minions</h2>
+        </div>
+        <div onclick="movieshow('417859')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/I/81QchPvsz0L._AC_UF894,1000_QL80_.jpg" alt="Puss In Boots">
+            <h2>Puss In Boots</h2>
+        </div>
+        <div onclick="movieshow('277834')" class="movie-card">
+            <img src="https://lumiere-a.akamaihd.net/v1/images/p_moana_20530_214883e3.jpeg?region=0%2C0%2C540%2C810" alt="Moana">
+            <h2>Moana</h2>
+        </div>
+        <div onclick="movieshow('615656')" class="movie-card">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQy9TZrj9wZ1TSSpeLn1OAqvCUJ3iIUl7PXFjcSpG4V5oZH_bNTH0zFbjRa3hNuOhg_Y-KdSQ" alt="Meg 2">
+            <h2>Meg 2</h2>
+        </div>            
+        <div onclick="movieshow('15789')" class="movie-card">
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS3K-KXdcWUZDIWuqs9QwcVsUgXbPmIZfDNkLFKVuBBC8dIK8w12UUJEq9mQqEOddgZzNA_XQ" alt="A Goofy Movie">
+            <h2>A Goofy Movie</h2>
+        </div>
+        <div onclick="movieshow('299534')" class="movie-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQBV4DwisDoIO-v1M44sNNYtyOM2GSL3q-vijXQyB_VDuZqyop8NgiZQajBO-3oqbbzfuXIcA" alt="Avengers Endgame">
+            <h2>Avengers Endgame</h2>
+        </div>
+        <div onclick="movieshow('102899')" class="movie-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRyNz_dkQo1lDDSJ3Bjg8quzPe40kV5RzTXo5k2Q8KydPrapoenq3YcrMNpFGB7M4BmT4xBGw" alt="Ant Man">
+            <h2>Ant Man</h2>
+        </div>
+        <div onclick="movieshow('19995')" class="movie-card">
+            <img src="https://lumiere-a.akamaihd.net/v1/images/avatar_800x1200_208c9665.jpeg?region=0%2C0%2C800%2C1200" alt="Avatar">
+            <h2>Avatar</h2>
+        </div>
+        <div onclick="movieshow('557')" class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmdLHys3rkC_13_PGgBrWvoUufM-LDnBx341ub8rIT3KWe80j3uEdO3IY9B_sG0WvoNr632A" alt="Spider Man 2">
+            <h2>Spider Man</h2>
+        </div>
+        <div onclick="movieshow('558')" class="movie-card">
+            <img src="https://images.penguinrandomhouse.com/cover/9780345478757" alt="Spider Man 2">
+            <h2>Spider Man 2</h2>
+        </div>
+        <div onclick="movieshow('559')" class="movie-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BODE2NzNhMDctYjUzMC00Y2M5LWI2Y2EtODJkZTFjN2Y5ODlmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Spider Man 3">
+            <h2>Spider Man 3</h2>
+        </div>
+        <div onclick="movieshow('10014')" class="movie-card">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQspnkmxmezajmL_HNqQYzVGA8LGF79glA5JRjRL1TTMPopskhpYahYnuO8UdcFjswmMtsElA" alt="A Nightmare on Elm Street 2">
+            <h2>A Nightmare on Elm Street 2</h2>
+        </div>
+        <div onclick="movieshow('363088')" class="movie-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTZEICE5Fp_1MCZq0qK501n8ErP10rJHZB0teV2XdX8THwITz_e5yMxxUzXP1SDKlmdAXjt" alt="Ant Man and The Wasp">
+            <h2>Ant Man and The Wasp</h2>
+        </div>
+        <div onclick="movieshow('15653')" class="movie-card">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQEy54gGgAHj5RWdhMF1MtNOAxObACyMnUdkv0mLkzXc_WlQnzROAVCVz0-Ty2YNrnLnFS2iQ" alt="An Extremely Goofy Movie">
+            <h2>An Extremely Goofy Movie</h2>
+        </div>
+        <div onclick="movieshow('4011')" class="movie-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSMWsY2jhKWeGR6YqBJhzM8bmGz3YImBm-tG8YZK929YyGFqQlg_lz-GoywV-kUju1vDdMOSA" alt="BeetleJuice">
+            <h2>BeetleJuice</h2>
+        </div>
+        <div onclick="movieshow('550988')" class="movie-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvbPcVUXBCAsqsDn-hB-CfVG7FNPO212zSX9zrX-TXO2HEiu2Jt_LJB41sh2ZgDf2oN4u6" alt="BeetleJuice">
+            <h2>Free Guy</h2>
+        </div>
+        <div onclick="movieshow('496')" class="movie-card">
+            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/kfkyALfD4G1mlBJI1lOt2QCra4i.jpg" alt="Borat">
+            <h2>Borat</h2>
+        </div>
+        <div onclick="movieshow('335983')" class="movie-card">
+            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg" alt="Venom">
+            <h2>Venom</h2>
+        </div>
+        <div onclick="movieshow('1241982')" class="movie-card">
+            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/aLVkiINlIeCkcZIzb7XHzPYgO6L.jpg" alt="Moana 2">
+            <h2>Moana 2</h2>
+        </div>
+        <div onclick="movieshow('746036')" class="movie-card">
+            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/e7olqFmzcIX5c23kX4zSmLPJi8c.jpg" alt="The Fall Guy">
+            <h2>The Fall Guy</h2>
+        </div>
+        <div onclick="movieshow('937287')" class="movie-card">
+            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/H6vke7zGiuLsz4v4RPeReb9rsv.jpg" alt="The Challenger">
+            <h2>The Challenger</h2>
+        </div>
+        <div onclick="movieshow('938614')" class="movie-card">
+            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/mu8LRWT9GHkfiyHm7kgxT6YNvMW.jpg" alt="Late Night With The Devil">
+            <h2>Late Night With The Devil</h2>
+        </div>
+        <div onclick="movieshow('426063')" class="movie-card">
+            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/5qGIxdEO841C0tdY8vOdLoRVrr0.jpg" alt="Nosferatu">
+            <h2>Nosferatu</h2>
+        </div>
+        <div onclick="movieshow('')" class="movie-card">
+            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg" alt="Gladiator II">
+            <h2>Gladiator II</h2>
+        </div>
+        <div onclick="movieshow('1226406')" class="movie-card">
+            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/znIp6C8Cnr5RrTy6J65ygkWChin.jpg" alt="Love Hurts">
+            <h2>Love Hurts</h2>
+        </div>
+    </section>    
     <!-- Cursor Thingy -->
      <script>
         const cursor = document.querySelector('.custom-cursor');
