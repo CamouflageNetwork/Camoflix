@@ -1,0 +1,342 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <title>Camoflix</title>
+    <meta name="description" content="Camouflix – Free movies with no ads made with love by Camouflage Network, An awesome UI and good selection with movies being added every day.">
+    <meta property="og:title" content="Camoflix">
+    <meta property="og:description" content="Free movies with no ads made with love by Camouflage Network, An awesome UI and good selection with movies being added every day.">
+    <meta property="og:url" content="https://camoflix.xyz">
+    <meta property="og:image" content="/favicon.ico">
+    <meta property="og:type" content="website">
+    <style>
+        * {
+            cursor: none;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+            background: #020412;
+            scroll-behavior: smooth;
+        }
+
+        #particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 4px solid #005c22;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%)
+        }
+    
+        .custom-cursor.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: rgba(9, 229, 35, 0.2)
+        }
+    
+        .custom-cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: #005c22;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.05s ease;
+            transform: translate(-50%, -50%)
+        }
+
+        .welcome-1 {
+            width: 50%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .welcome-2 {
+            width: 50%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .welcome-2 button {
+            width: 175px;
+            height: 75px;
+            border-radius: 100rem;
+            border: none;
+            background: linear-gradient(to right, green, darkgreen);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: whitesmoke;
+            font-size: 1rem;
+        }
+
+        .welcome-container {
+            display: flex;
+            flex-direction: row;
+            gap: none;
+            margin-bottom: 20vh;
+        }
+
+        .typewriter {
+            display: inline;
+        }
+
+        .typewriter h1 {
+            overflow: hidden;
+            margin-inline: auto;
+            white-space: nowrap;
+            animation: typing 2s steps(19) forwards, 
+            blink 1s infinite;
+            position: relative;
+            z-index: 0;
+            font-size: 5rem;
+            color: white;
+        }
+
+        .typewriter h1 span {
+            color: rgb(3, 183, 3);
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 10vh;
+        }
+
+        .movie-card {
+            background-color: #292929;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+            position: relative;
+            text-align: center;
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 20rem;
+            display: block;
+        }
+
+        .movie-card h2 {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            min-height: 3rem;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: rgba(0, 0, 0, 0.7);
+            transition: bottom 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: normal;
+            word-wrap: break-word;
+            text-align: center;
+        }
+
+        .movie-card:hover h2 {
+            bottom: 0;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes slide-in {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script><style type="text/css" id="operaUserStyle"></style>
+<style>
+        @keyframes moveParticle {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(calc(-50vw + 100%), calc(-100vh)) rotate(360deg);
+            }
+        }
+        </style></head>
+<body>
+    <div id="particle-container"><div style="position: absolute; bottom: 0px; left: 1362.12px; width: 5.43139px; height: 5.43139px; border-radius: 50%; background-color: rgb(2, 153, 2); opacity: 0.659; animation: 2.80387s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 1271.98px; width: 5.11923px; height: 5.11923px; border-radius: 50%; background-color: rgb(2, 160, 2); opacity: 0.786521; animation: 4.62378s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 1237.09px; width: 5.04232px; height: 5.04232px; border-radius: 50%; background-color: rgb(77, 245, 77); opacity: 0.255477; animation: 4.87562s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 1332.43px; width: 2.02198px; height: 2.02198px; border-radius: 50%; background-color: rgb(2, 153, 2); opacity: 0.467563; animation: 3.68059s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 1216.75px; width: 4.74854px; height: 4.74854px; border-radius: 50%; background-color: rgb(2, 153, 2); opacity: 0.799853; animation: 4.25869s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 1343.12px; width: 4.88127px; height: 4.88127px; border-radius: 50%; background-color: rgb(2, 153, 2); opacity: 0.913279; animation: 2.58076s linear 0s 1 normal none running moveParticle;"></div><div style="position: absolute; bottom: 0px; left: 1613.07px; width: 3.00102px; height: 3.00102px; border-radius: 50%; background-color: rgb(36, 236, 36); opacity: 0.291439; animation: 2.11373s linear 0s 1 normal none running moveParticle;"></div></div>
+    <div class="custom-cursor" style="left: 690px; top: 0px; transform: translate(-50%, -50%) scale(0.7);"></div>
+    <div class="custom-cursor-dot" style="left: 690px; top: 0px;"></div>
+    <div class="welcome-container">
+    <div class="welcome-1">
+    <div class="typewriter">
+        <div>
+        <h1>Welcome to <br>
+             <span class="auto-type">Camoflix is</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true">|</span>
+        </h1>
+        </div>
+        <script>
+            var typed = new Typed('.auto-type', {
+      strings: ['Free', 'No Ads', 'Fun', 'Unblocked', 'Legal', 'Awesome', 'Undetected', 'Insane', 'Yes, its Legal, dont ban me github...'],
+      typeSpeed: 120,
+      backSpeed: 120,
+      backDelay: 5000,
+      loop: true,
+      loopCount: Infinity,
+    });
+        </script>
+    </div>
+    </div>
+    <div class="welcome-2">
+        <button onclick="window.location.href = '#movie-grid'">
+            Get Started
+        </button>
+    </div>
+    </div><style data-typed-js-cursor-css="true">
+        .typed-cursor{
+          opacity: 1;
+        }
+        .typed-cursor.typed-cursor--blink{
+          animation: typedjsBlink 0.7s infinite;
+          -webkit-animation: typedjsBlink 0.7s infinite;
+                  animation: typedjsBlink 0.7s infinite;
+        }
+        @keyframes typedjsBlink{
+          50% { opacity: 0.0; }
+        }
+        @-webkit-keyframes typedjsBlink{
+          0% { opacity: 1; }
+          50% { opacity: 0.0; }
+          100% { opacity: 1; }
+        }
+      </style>
+    <section id="movie-grid" class="movie-grid">
+      <h1>Latest Movies</h1>
+       <script>
+        const apiUrl = 'https://vidsrc.xyz/movies/latest/page-1.json';
+        const movieContainer = document.getElementById('movie-container');
+        
+        async function fetchMovies() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                displayMovies(data.result);
+            } catch (error) {
+                console.error('Error fetching movies:', error);
+            }
+        }
+        
+        function displayMovies(movies) {
+            movieContainer.innerHTML = '';
+            movies.forEach(movie => {
+                const movieElement = document.createElement('div');
+                movieElement.classList.add('movie');
+                movieElement.innerHTML = `
+                    <h3>${movie.title}</h3>
+                `;
+                movieElement.addEventListener('click', () => {
+                    localStorage.setItem('movieurl', movie.imdb_id);
+                    window.location.href = 'watch.html';
+                });
+                movieContainer.appendChild(movieElement);
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', fetchMovies);
+       </script>
+    </section>
+    <!-- Cursor Thingy -->
+     <script>
+        const cursor = document.querySelector('.custom-cursor');
+      const cursorDot = document.querySelector('.custom-cursor-dot');
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursorDot.style.left = e.clientX + 'px';
+        cursorDot.style.top = e.clientY + 'px'
+      });
+      document.addEventListener('mousedown', () => cursor.style.transform = 'translate(-50%, -50%) scale(0.7)');
+      document.addEventListener('mouseup', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+      document.querySelectorAll('a, button, .movie-card').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'))
+      });
+     </script>
+     <!-- Partical Thingy -->
+      <script>
+        const particleContainer = document.getElementById('particle-container');
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            const size = Math.random() * 5 + 2; 
+            const startX = Math.random() * window.innerWidth;
+            const greenShades = ['#24ec24', '#03d803', '#029902', '#02a002', '#4df54d'];
+
+            particle.style.cssText = `
+                position: absolute;
+                bottom: 0;
+                left: ${startX}px;
+                width: ${size}px;
+                height: ${size}px;
+                border-radius: 50%;
+                background-color: ${greenShades[Math.floor(Math.random() * greenShades.length)]};
+                opacity: ${Math.random() * 0.8 + 0.2};
+                animation: moveParticle ${Math.random() * 3 + 2}s linear;
+            `;
+
+            particleContainer.appendChild(particle);
+
+            particle.addEventListener('animationend', () => particle.remove());
+        }
+
+        setInterval(() => {
+            if (document.hidden) return;
+            createParticle();
+        }, 400);
+
+        const style = document.createElement('style');
+        style.textContent = `
+        @keyframes moveParticle {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(calc(-50vw + 100%), calc(-100vh)) rotate(360deg);
+            }
+        }
+        `;
+        document.head.appendChild(style);
+      </script>
+
+
+</body></html>
