@@ -436,7 +436,16 @@
             <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/znIp6C8Cnr5RrTy6J65ygkWChin.jpg" alt="Love Hurts">
             <h2>Love Hurts</h2>
         </div>
-    </section>    
+    </section>  
+    <script>
+        function movieshow(url) {
+
+            localStorage.setItem("movieurl", url);
+
+            window.location.href = "watch.html";
+        
+        }
+    </script>    
     <!-- Cursor Thingy -->
      <script>
         const cursor = document.querySelector('.custom-cursor');
@@ -499,6 +508,6 @@
         `;
         document.head.appendChild(style);
       </script>
-
-
+      <!-- Disable Devtools (hopefully) -->
+      <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
 </body></html>
